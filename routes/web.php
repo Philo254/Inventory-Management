@@ -9,7 +9,8 @@ use App\Http\Controllers\UserController;
 /**Route::get('/', function () {
     return view('welcome');
 });**/
-
+Route::get('register', [UserController::class, 'register'])->name('register');
+Route::post('register', [UserController::class, 'register_action'])->name('register.action');
 
 
 Route::get('/', function () {
