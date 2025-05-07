@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\onyan\INVE\resources\views/orders/create.blade.php ENDPATH**/ ?>
