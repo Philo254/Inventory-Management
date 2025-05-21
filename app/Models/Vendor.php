@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Models\Master;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Vendor extends Model
 {
-protected $table = 'Vendors';
-
-public function user_modify(){
-    return $this->belongsTo('\App\user','user_modified' );
-}
-
-
+    protected $table = 'vendors';
+    protected $primaryKey = 'id';
+    protected $fillable = ["name","E-mail", "phone"];
 }
