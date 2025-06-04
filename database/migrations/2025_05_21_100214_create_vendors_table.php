@@ -15,9 +15,18 @@ return new class extends Migration
             $table->id();
             $table->string('name');
 
-            $table->string('E-mail');
+            $table->string('Address');
 
-            $table->string('phone');
+            $table->string('cp'); //contact person
+
+            $table->string('Phone No');
+
+            $table->integer('Active');
+
+            $table->integer('User_modified');
+
+
+
             $table->timestamps();
         });
     }
