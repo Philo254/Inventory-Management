@@ -40,6 +40,7 @@ Route::resource("/products", ProductController::class);
 Route::resource("/orders", OrderController::class);
 Route::resource("/vendors", VendorController::class);
 Route::get('vendor/datatable', 'VendorController@datatable')->name('vendor/datatable');
+//Route::resource("vendor.create", VendorController::class);
 
 
 
