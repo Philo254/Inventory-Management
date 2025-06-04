@@ -8,5 +8,5 @@ class Vendor extends Model
 {
     protected $table = 'vendors';
     protected $primaryKey = 'id';
-    protected $fillable = ["name","E-mail", "phone"];
+    protected $fillable = ["name","Address","cp", "phone No","Active","User_modified",];
 }
