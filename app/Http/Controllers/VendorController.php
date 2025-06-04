@@ -27,7 +27,8 @@ class VendorController extends Controller
      */
     public function create()
     {
-        //
+        return view('Vendors.create');
+
     }
 
     /**
@@ -35,7 +36,9 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Vendor::create($input);
+        return redirect('Vendors')->with('flash_message', 'Vendor Added!');
     }
 
     /**
@@ -84,11 +87,11 @@ class VendorController extends Controller
           return $view."".$edit."".$delete;
         })
         ->editColumn('address',function ($data){
-            return str_ireplace(search:"\r\n", replace:',', $data->address );
+            //return str_ireplace(search:"\r\n", replace:',', $data->address );
         })
 
         ->editColumn('phone',function ($data){
-            return str_ireplace(search:"\r\n", replace:',', $data->phone );
+            //return str_ireplace(search:"\r\n", replace:',', $data->phone );
         })
         -> rawColumns (['action'])
         ->editColumn ('id', 'ID:{{$id}}')
