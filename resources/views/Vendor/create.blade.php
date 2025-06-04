@@ -1,11 +1,16 @@
 @extends('layout')
+@push('css')
+<!-- DataTables -->
+
+@endpush
+
 @section('content')
 
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Vendor</h1>
+                <h1 class="m-0 text-dark">Vendors</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -19,7 +24,8 @@
             </div>
             </div>
 
-<!-- Main content -->
+
+            <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -37,39 +43,59 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group row">
-                    <div class="col-md-4">
-                     <label for="name" class="col-sm-2 col-form-label">Name</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="name" placeholder="Name">
-                    </div>
-                    </div>
-                    <div class="col-md-4">
-                     <label for="address" class="col-sm-2 col-form-label">Address</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="address" placeholder="Address">
-                    </div>
+                    <div class="col-md-8">
+
+                         <label for="name" class="col-sm-6 col-form-label">Name</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control"  id="name" name="name" placeholder="Name">
                     </div>
 
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
-                      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    <label for="address" class="col-sm-6 col-form-label">Address</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control"  id="address" name="name" placeholder="Address">
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-10">
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">Remember me</label>
-                      </div>
+
+                    <label for="contactperson" class="col-sm-6 col-form-label">Contact Person</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control"  id="contactperson" name="contactperson" placeholder="Contact Person">
                     </div>
-                  </div>
+
+
                 </div>
+
+                  </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+
+                         <label for="phone" class="col-sm-6 col-form-label">Phone No</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control"  id="phone" name="phone" placeholder="Phone No">
+                    </div>
+
+                    <label for="status" class="col-sm-4 col-form-label">Status</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="status" name="status">
+                            <option value="1">Active</option>
+                            <option value="0">Inctive</option>
+                        </select>
+
+
+                    </div>
+
+                </div>
+
+                  </div>
+
+                </div>
+
+
+
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info">Sign in</button>
-                  <button type="submit" class="btn btn-default float-right">Cancel</button>
+                  <button type="submit" class="btn btn-default float-right">Submit</button>
                 </div>
                 <!-- /.card-footer -->
               </form>
@@ -79,10 +105,13 @@
           </div>
           <!--/.col (left) -->
 
+
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 
-            @endsection
+
+
+@endsection
