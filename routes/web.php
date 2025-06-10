@@ -39,7 +39,7 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 Route::resource("/products", ProductController::class);
 Route::resource("/orders", OrderController::class);
 Route::resource("/vendors", VendorController::class);
-Route::get('vendor/datatable', 'VendorController@datatable')->name('vendor/datatable');
+Route::get('vendor/datatable', [VendorController::class,'datatable'])->name('vendor.datatable');
 //Route::resource("vendor.create", VendorController::class);
 Route::resource("vendor.store", VendorController::class);
 
