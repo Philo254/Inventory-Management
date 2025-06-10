@@ -39,7 +39,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal">
+              <form class="form-horizontal" method="POST" action="{{ route('vendors.store') }}">
                 @csrf
                 <div class="card-body">
                   <div class="form-group row">
@@ -52,7 +52,7 @@
 
                     <label for="address" class="col-sm-6 col-form-label">Address</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control"  id="address" name="name" placeholder="Address">
+                      <input type="text" class="form-control"  id="address" name="address" placeholder="Address">
                     </div>
 
                     <label for="contactperson" class="col-sm-6 col-form-label">Contact Person</label>
@@ -77,7 +77,7 @@
 
                     <label for="status" class="col-sm-4 col-form-label">Status</label>
                     <div class="col-sm-8">
-                        <select class="form-control" id="status" name="status">
+                        <select class="form-control" id="active" name="active">
                             <option value="1">Active</option>
                             <option value="0">Inctive</option>
                         </select>
