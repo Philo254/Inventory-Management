@@ -48,7 +48,7 @@ class VendorController extends Controller
        return redirect()->route('vendors.index');
 
        }
-       else{
+       else {
         return redirect ()->back();
        }
 
@@ -100,14 +100,21 @@ class VendorController extends Controller
 
           return $view."".$edit."".$delete;
         })
+        ->editColumn('name',function ($data){
+            return str_ireplace("\r\n", ',', $data->Name );
+        })
         ->editColumn('address',function ($data){
-            return str_ireplace(search:"\r\n", replace:',', $data->address );
+            return str_ireplace("\r\n", ',', $data->Address );
+
         })
 
         ->editColumn('phone',function ($data){
-            return str_ireplace(search:"\r\n", replace:',', $data->phone );
+            return str_ireplace("\r\n", ',', $data->Phone );
         })
-        -> rawColumns (['action'])
+        ->editColumn('active',function ($data){
+            return str_ireplace("\r\n", ',', $data->Active );
+        })
+        ->rawColumns (['action'])
         ->editColumn ('id', 'ID:{{$id}}')
         ->make(true);
 
