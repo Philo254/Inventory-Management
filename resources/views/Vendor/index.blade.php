@@ -1,7 +1,7 @@
 @extends('layout')
 @push('css')
 <!-- DataTables -->
-  <link rel="stylesheet" href="{{asset('asset/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 
 @endpush
 
@@ -32,7 +32,8 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">DataTable with default features</h3>
+              <h3 class="card-title">Vendors List</h3>
+              <a class= "btn btn-info btn-sm float-right"  href="{{route('vendors.create')}}" title="create">Create Vendor</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -41,20 +42,21 @@
                 <tr>
                   <th>Name</th>
                   <th>Address</th>
-                  <th>Contact Person</th>
-                  <th>Phone No.</th>
+                  <th>cp(contact person)</th>
+                  <th>Phone </th>
                   <th>Status</th>
                   <th>Action</th>
 
                 </tr>
                 </thead>
 
+
                 <tfoot>
                 <tr>
                   <th>Name</th>
                   <th>Address</th>
-                  <th>Contact Person</th>
-                  <th>Phone No.</th>
+                  <th>cp(Contact person)</th>
+                  <th>Phone </th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -73,20 +75,21 @@
 
             @endsection
             @push('js')
+            <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- DataTables -->
-<script src="{{asset('asset/plugins/datatables/jquery.dataTables.js')}}"></script>
-<script src="{{asset('asset/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 
 <script>
   $(function () {
-    $("#example1").DataTable();
+    $("#example1").DataTable({
      responsive:true,
      processing:true,
      pagingtype:'full_numbers',
      stateSave:false,
      scrollY:true,
      scrollX:true,
-     ajax"{{ url('vendor/datatable') }}",
+     ajax:"{{ route('vendor.datatable') }}",
      order:[0,'desc'],
      columns:[
         {data:'name', name:'name'},
@@ -110,7 +113,7 @@
      ]
 
 
-
+});
 
   });
 </script>
