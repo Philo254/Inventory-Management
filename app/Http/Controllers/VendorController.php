@@ -36,9 +36,23 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Vendor::create($input);
-        return redirect('Vendors')->with('flash_message', 'Vendor Added!');
+       $data = new Vendor ();
+       $data->name=$request->name;
+       $data->address=$request->address;
+       $data->cp=$request->contactperson;
+       $data->phone=$request->phone;
+       $data->active=$request->active;
+
+       if ($data->save()){
+
+       return redirect()->route('vendors.index');
+
+       }
+       else{
+        return redirect ()->back();
+       }
+
+
     }
 
     /**
@@ -87,11 +101,11 @@ class VendorController extends Controller
           return $view."".$edit."".$delete;
         })
         ->editColumn('address',function ($data){
-            //return str_ireplace(search:"\r\n", replace:',', $data->address );
+            return str_ireplace(search:"\r\n", replace:',', $data->address );
         })
 
         ->editColumn('phone',function ($data){
-            //return str_ireplace(search:"\r\n", replace:',', $data->phone );
+            return str_ireplace(search:"\r\n", replace:',', $data->phone );
         })
         -> rawColumns (['action'])
         ->editColumn ('id', 'ID:{{$id}}')
