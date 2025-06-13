@@ -68,7 +68,14 @@ class VendorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
+      $data = Vendor:: where ('id', $id)->where('active', '!=', 2 )->get();
+      if($data->count() > 0){
+         return view('Vendors.edit', compact('data'));
+
+      }
+
+
     }
 
     /**
@@ -76,7 +83,24 @@ class VendorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       $data = Vendor::find($id);
+       $data->name=$request->name;
+       $data->address=$request->address;
+       $data->cp=$request->contactperson;
+       $data->phone=$request->phone;
+       $data->active=$request->active;
+
+       if ($data->save()){
+
+       return redirect()->route('vendors.index');
+
+       }
+       else {
+        return redirect ()->back();
+       }
+
+
+
     }
 
     /**
