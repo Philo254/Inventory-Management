@@ -17,7 +17,7 @@ class VendorController extends Controller
     public function index()
     {
          {
-            $vendors = vendor::all();
+              $vendors = vendor::all();
             return view ('vendors.index')->with('vendors', $vendors);
         }
     }
@@ -58,10 +58,18 @@ class VendorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( $id)
+
     {
-        //
-    }
+
+         $data = Vendor:: where ('id', $id)->first();
+        // die(var_dump($data));
+     // if($data->count()>0){
+
+         return view('Vendors.view',compact( 'data'));
+
+   // }
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -71,7 +79,7 @@ class VendorController extends Controller
 
       $data = Vendor:: where ('id', $id)->where('active', '!=', 2 )->get();
       if($data->count() > 0){
-         return view('Vendors.edit', compact('data'));
+         return view('Vendors.update',compact( 'data'));
 
       }
 
@@ -116,7 +124,7 @@ class VendorController extends Controller
         $data = Vendor::all();
         return Datatables::of($data)
         ->addColumn('action', function ($data) {
-          $url_edit = url('vendors/'.$data->id.'/edit');
+          $url_edit = url( 'vendors/'.$data->id.'/edit');
           $url = url('vendors/'.$data->id);
           $view = "<a class='btn btn-action btn-primary' href='".$url."' title='view'><i class='nav-icon fas fa-eye'></i></a>" ;
           $edit = "<a class='btn btn-action btn-warning' href='".$url_edit."' title='Edit'><i class='nav-icon fas fa-edit'></i></a>" ;
@@ -125,18 +133,18 @@ class VendorController extends Controller
           return $view."".$edit."".$delete;
         })
         ->editColumn('name',function ($data){
-            return str_ireplace("\r\n", ',', $data->Name );
+            return str_ireplace("\r\n", ',', $data->name );
         })
         ->editColumn('address',function ($data){
-            return str_ireplace("\r\n", ',', $data->Address );
+            return str_ireplace("\r\n", ',', $data->address );
 
         })
 
         ->editColumn('phone',function ($data){
-            return str_ireplace("\r\n", ',', $data->Phone );
+            return str_ireplace("\r\n", ',', $data->phone );
         })
         ->editColumn('active',function ($data){
-            return str_ireplace("\r\n", ',', $data->Active );
+            return str_ireplace("\r\n", ',', $data->active );
         })
         ->rawColumns (['action'])
         ->editColumn ('id', 'ID:{{$id}}')
