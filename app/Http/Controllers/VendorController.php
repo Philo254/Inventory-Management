@@ -116,7 +116,7 @@ class VendorController extends Controller
         $data = Vendor::all();
         return Datatables::of($data)
         ->addColumn('action', function ($data) {
-          $url_edit = url('vendor/'.$data->id.'/edit');
+          $url_edit = url('vendors/'.$data->id.'/edit');
           $url = url('vendor/'.$data->id);
           $view = "<a class='btn btn-action btn-primary' href='".$url."' title='view'><i class='nav-icon fas fa-eye'></i></a>" ;
           $edit = "<a class='btn btn-action btn-warning' href='".$url_edit."' title='Edit'><i class='nav-icon fas fa-edit'></i></a>" ;
