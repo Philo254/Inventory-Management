@@ -29,6 +29,14 @@ class ProductController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+           /* $validator=Validator::make($request->all(),[
+            'name'=>'required|unique:products|max:255',
+        ]);
+        if($validator->fails()){
+          return redirect('products')->with('flash_message', 'you can not duplicate product name');
+        }
+        else{}*/
+        
         $input = $request->all();
         Product::create($input);
         return redirect('products')->with('flash_message', 'Product Added!');
