@@ -8,6 +8,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\PurchaseController;
+
 
 /**Route::get('/', function () {
     return view('welcome');
@@ -39,9 +41,19 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 Route::resource("/products", ProductController::class);
 Route::resource("/orders", OrderController::class);
 Route::resource("/vendors", VendorController::class);
+Route::resource("/purchase", PurchaseController::class);
+//Route::get('purchase/datatable', [PurchaseController::class,'datatable'])->name('vendor.datatable');
+
 Route::get('vendor/datatable', [VendorController::class,'datatable'])->name('vendor.datatable');
 //Route::resource("vendor.create", VendorController::class);
 Route::resource("vendor.store", VendorController::class);
+Route::resource("vendor.update", VendorController::class);
+
+Route::resource("purchase-order", PurchaseController::class);
+
+
+
+
 
 
 
