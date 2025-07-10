@@ -98,8 +98,8 @@
                 <a href= "/products">Products</a>
                 <a href="/orders">Orders</a>
                 <a href="/vendors">Vendors</a>
+                <a href="/purchase">Purchase Order</a>
                 <a href="#about">About</a>
-                <a href="/cart">Cart</a>
             </div>
 
         </div>
