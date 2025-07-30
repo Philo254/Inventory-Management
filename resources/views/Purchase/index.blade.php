@@ -4,6 +4,12 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}} ">
+  <!-- Date -->
+  <link rel="stylesheet" href="{{asset('assets/plugins/jquery-ui/jquery-ui.css')}} ">
+
+
+
+
 
 @endpush
 
@@ -35,7 +41,7 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Purchases List</h3>
-              <a class= "btn btn-info btn-sm float-right"  href="{{route('vendors.create')}}" title="create">Create Vendor</a>
+              <a class= "btn btn-info btn-sm float-right"  href="{{route('purchase-order.create')}}" title="create">Create</a>
             </div>
             <!-- /.card-header -->
             <form class="form-horizontal" method="GET" role="form" autocomplete="off">
@@ -144,7 +150,7 @@
      stateSave:false,
      scrollY:true,
      scrollX:true,
-     ajax:"{{ route('vendor.datatable') }}",
+     ajax:"",
      order:[0,'desc'],
      columns:[
         {data:'name', name:'name'},
@@ -176,24 +182,27 @@
   });
 </script>
 
-<script>
-    function deleteDat(dt){
 
-        if(confirm ("are you sure you want to deleate this data")){
-            $.ajax({
-                type:'DELETE',
-                url:$(dt).data ("url"),
-                data:{
-                    "_token":"{{ csrf_token() }}"
-                },
+    <script>
+
+      $(function(){
+       $('#startDate').datepicker({
+        autoclose:true,
+        dateFormat:'dd-mm-yy',
+
+       });
+
+       $('#endDate').datepicker({
+        autoclose:true,
+        format:'dd-mm-yy',
+
+       });
 
 
-            });
-        }
+    })
 
-    }
 
-    </script>
+        </script>
 
 
 @endpush
