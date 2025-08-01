@@ -6,10 +6,7 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}} ">
   <!-- Date -->
   <link rel="stylesheet" href="{{asset('assets/plugins/jquery-ui/jquery-ui.css')}} ">
-
-
-
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
 @endpush
 
@@ -64,11 +61,16 @@
 
                 <div class="col-md-6">
 
+
+
                          <label for="startDate" class="col-sm-6 col-form-label">Start Date</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control"  id="startDate" name="startDate">
+                      <input type="text" class="form-control" id="startDate" name="startDate">
+
+
                     </div>
             </div>
+
             <div class="col-md-6">
 
                          <label for="endDate" class="col-sm-6 col-form-label">End Date</label>
@@ -76,19 +78,21 @@
                       <input type="text" class="form-control" name="endDate"  id="endDate" >
                     </div>
             </div>
+
+
             <div class="form-group row">
                 <!--checkbox-->
             </div>
            <div class="col-md-4">
               <div class="form-group clearfix">
-                <div class="icheck-primary d-inline ">
+                <div class="icheck-primary">
                     <input type="checkbox" id="show-all" name="mode" value="all">
                     <label for="show-all">Show All
               </label>
-                </div>
-              </div>
-            </div>
-            </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
                 <button type="submit" class= "btn btn-default float-right">Submit</button>
 
 
@@ -134,6 +138,7 @@
     <!-- /.content -->
 
             @endsection
+
             @push('js')
             <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- DataTables -->
@@ -181,12 +186,13 @@
 
   });
 </script>
-
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
     <script>
 
       $(function(){
-       $('#startDate').datepicker({
+       $("#startDate").datepicker({
         autoclose:true,
         dateFormat:'dd-mm-yy',
 
@@ -198,11 +204,10 @@
 
        });
 
-
-    })
-
+    });
 
         </script>
 
-
 @endpush
+
+

@@ -1,6 +1,10 @@
 @extends('layout')
 @push('css')
-<!-- DataTables -->
+
+  <!-- Date -->
+  <link rel="stylesheet" href="{{asset('assets/plugins/jquery-ui/jquery-ui.css')}} ">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
 @endpush
 
@@ -77,14 +81,15 @@
 
                     <div class="form-group row">
                     <div class="col-md-12">
-
                          <label for="id_raw_product" class="col-sm-6 col-form-label">Product Name</label>
                          <div class="col-sm-6">
                             <input type="text" name="id_raw_product[]" id="id_raw_product_1" class="form-control" placeholder="Product Name">
-                         </div>
+                        </div>
                     </div>
-                    </div>
+                </div>
+
                     <div class="form-group row">
+
                     <div class="col-sm-4">
                         <input type="text" name="price[]" id="price_1" class="form-control" placeholder="Price">
                     </div>
@@ -95,28 +100,20 @@
                     <div class="col-sm-2">
                         <a href="javascript:void(0)" class="btn btn-primary" title="Add Row"> <i class="fas fa-plus"></i></a>
                     </div>
-                    </div>
-                    </div>
+                </div>
 
-
-
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-default float-right">Submit</button>
+                </div>
 
                 </div>
 
-                  </div>
-
-                </div>
-
-
-
-                </div>
+            </div>
 
 
 
                 <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-default float-right">Submit</button>
-                </div>
+
                 <!-- /.card-footer -->
               </form>
             </div>
@@ -130,8 +127,24 @@
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <!-- /.content -->
 
 
+@push('js')
+    <script>
 
-@endsection
+      $(function(){
+       $("#date").datepicker({
+        autoclose:true,
+        dateFormat:'dd-mm-yy',
+});
+
+       })
+
+        </script>
+        @endpush
+
+        @endsection
+
