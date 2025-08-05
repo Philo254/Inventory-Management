@@ -69,7 +69,7 @@
                     </div>
                     </div>
 
-                    <div class="form-group row">
+                    <!--div class="form-group row"-->
                     <div class="col-md-12">
 
                          <label for="id_ven" class="col-sm-6 col-form-label">Supplier Name</label>
@@ -77,37 +77,34 @@
                             <input type="text" name="id_ven" id="id_ven" class="form-control" placeholder="Supplier Name">
                          </div>
                     </div>
-                    </div>
-
-                    <div class="form-group row">
-                    <div class="col-md-12">
+                    <!--/div-->
+                    <div class="col-md-12 field-wrapper">
+       <div class="form-group row">
+                    <!--div class="col-md-12"-->
                          <label for="id_raw_product" class="col-sm-6 col-form-label">Product Name</label>
-                         <div class="col-sm-6">
+                         <div class="col-sm-8">
                             <input type="text" name="id_raw_product[]" id="id_raw_product_1" class="form-control" placeholder="Product Name">
                         </div>
-                    </div>
-                </div>
+                    <!--/div-->
 
-                    <div class="form-group row">
-
-                    <div class="col-sm-4">
+                         <div class="col-sm-4">
                         <input type="text" name="price[]" id="price_1" class="form-control" placeholder="Price">
-                    </div>
+                         </div>
 
-                    <div class="col-sm-4">
+                        <div class="col-sm-4">
                         <input type="text" name="total[]" id="total_1" class="form-control" placeholder="Total">
-                    </div>
-                    <div class="col-sm-2">
+                        </div>
+                         <div class="col-sm-2">
                         <a href="javascript:void(0)" class="btn btn-primary" title="Add Row"> <i class="fas fa-plus"></i></a>
-                    </div>
-                </div>
+                        </div>
+       </div>
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-default float-right">Submit</button>
                 </div>
 
                 </div>
-
+             </div>
             </div>
 
 
@@ -133,6 +130,50 @@
 
 
 @push('js')
+    <script>
+       $(document).ready(function(){
+        var addButton=$('.add_Button');
+        var wrapper=$('.field-wrapper');
+        var X = "{{ $detail_count +1 }}";
+
+        $(addButton).click(function(){
+
+            X++;
+            $(wrapper).append('<div class="form-group row">'+
+                    '<div class="col-md-12">'+
+                         '<label for="id_raw_product" class="col-sm-6 col-form-label">Product Name</label>'+
+                         '<div class="col-sm-6">'+
+                            '<input type="text" name="id_raw_product[]" id="id_raw_product_'+X+'" class="form-control" placeholder="Product Name">'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+
+                    '<div class="form-group row">'+
+
+                    '<div class="col-sm-4">'+
+                        '<input type="text" name="price[]" id="price_'+X+'" class="form-control" placeholder="Price">'+
+                    '</div>'+
+
+                    '<div class="col-sm-4">'+
+                    '<input type="text" name="total[]" id="total_'+X+'" class="form-control" placeholder="Total">'+
+                    '</div>'+
+                    '<div class="col-sm-2">'+
+                    '<a href="javascript:void(0)" class="btn btn-danger remove" title="Delete"> <i class="fas fa-minus"></i></a>'+
+                    '</div>'+
+                '</div>'
+
+            );
+        });
+    $('.remove').click(function(){
+        if(confirm("Do you want to delete this row?")){
+
+        $(this).parent().parent().remove();
+        }
+    });
+
+       });
+
+        </script>
     <script>
 
       $(function(){
