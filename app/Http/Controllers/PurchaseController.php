@@ -20,7 +20,8 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        return view('purchase.create');
+        $detail_count = 0;
+        return view('purchase.create', compact('detail_count'));
 
     }
 
