@@ -29,18 +29,18 @@
         /* Active/current link */
         .sidebar a.active {
             background-color: #04AA6D;
-            color: white;
+            color: rgb(255, 255, 255);
         }
 
         /* Links on mouse-over */
         .sidebar a:hover:not(.active) {
-            background-color: #555;
+            background-color: #0f88b4;
             color: white;
         }
 
         /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
         div.content {
-            margin-left: 200px;
+            margin-left: 25px;
             padding: 1px 16px;
             height: 1000px;
         }
@@ -94,7 +94,7 @@
         <div class="col-md-3">
             <!-- The sidebar -->
             <div class="sidebar">
-                <a class="active" href="#home">Home</a>
+                <a href="#home">Home</a>
                 <a href= "/products">Products</a>
                 <a href="/orders">Orders</a>
                 <a href="/vendors">Vendors</a>
