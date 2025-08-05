@@ -69,7 +69,7 @@
                     </div>
                     </div>
 
-                    <!--div class="form-group row"-->
+                    <div class="form-group row">
                     <div class="col-md-12">
 
                          <label for="id_ven" class="col-sm-6 col-form-label">Supplier Name</label>
@@ -77,9 +77,9 @@
                             <input type="text" name="id_ven" id="id_ven" class="form-control" placeholder="Supplier Name">
                          </div>
                     </div>
-                    <!--/div-->
+                    </div>
                     <div class="col-md-12 field-wrapper">
-       <div class="form-group row">
+                  <div class="form-group row">
                     <!--div class="col-md-12"-->
                          <label for="id_raw_product" class="col-sm-6 col-form-label">Product Name</label>
                          <div class="col-sm-8">
@@ -95,9 +95,9 @@
                         <input type="text" name="total[]" id="total_1" class="form-control" placeholder="Total">
                         </div>
                          <div class="col-sm-2">
-                        <a href="javascript:void(0)" class="btn btn-primary" title="Add Row"> <i class="fas fa-plus"></i></a>
+                        <a href="javascript:void(0)" class="btn btn-primary add_Button" title="Add Row"> <i class="fas fa-plus"></i></a>
                         </div>
-       </div>
+                </div>
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-default float-right">Submit</button>
