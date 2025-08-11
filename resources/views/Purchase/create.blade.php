@@ -72,24 +72,25 @@
                     <div class="form-group row">
                     <div class="col-md-12">
 
-                         <label for="id_ven" class="col-sm-6 col-form-label">Supplier Name</label>
+                         <label for="id_ven" class=" bcol-sm-6 col-form-label">Supplier Name</label>
                          <div class="col-sm-6">
                             <input type="text" name="id_ven" id="id_ven" class="form-control" placeholder="Supplier Name">
                          </div>
                     </div>
                     </div>
                     <div class="col-md-12 field-wrapper">
-                  <div class="form-group row">
                     <!--div class="col-md-12"-->
+                         <div class="form-group row">
                          <label for="id_raw_product" class="col-sm-6 col-form-label">Product Name</label>
                          <div class="col-sm-8">
                             <input type="text" name="id_raw_product[]" id="id_raw_product_1" class="form-control" placeholder="Product Name">
                         </div>
                     <!--/div-->
-
                          <div class="col-sm-4">
                         <input type="text" name="price[]" id="price_1" class="form-control" placeholder="Price">
                          </div>
+                         </div>
+                     <div class="form-group row">
 
                         <div class="col-sm-4">
                         <input type="text" name="total[]" id="total_1" class="form-control" placeholder="Total">
@@ -98,6 +99,10 @@
                         <a href="javascript:void(0)" class="btn btn-primary add_Button" title="Add Row"> <i class="fas fa-plus"></i></a>
                         </div>
                 </div>
+            </div>
+                    </div>
+                    </div>
+                </div>
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-default float-right">Submit</button>
@@ -105,7 +110,7 @@
 
                 </div>
              </div>
-            </div>
+         </div>
 
 
 
@@ -139,10 +144,10 @@
         $(addButton).click(function(){
 
             X++;
-            $(wrapper).append('<div class="form-group row">'+
-                    '<div class="col-md-12">'+
+            $(wrapper).append( '<div class="form-group row">'+
+                             '<div class="col-md-12">'+
                          '<label for="id_raw_product" class="col-sm-6 col-form-label">Product Name</label>'+
-                         '<div class="col-sm-6">'+
+                         '<div class="col-sm-8">'+
                             '<input type="text" name="id_raw_product[]" id="id_raw_product_'+X+'" class="form-control" placeholder="Product Name">'+
                         '</div>'+
                     '</div>'+
@@ -160,15 +165,18 @@
                     '<div class="col-sm-2">'+
                     '<a href="javascript:void(0)" class="btn btn-danger remove" title="Delete"> <i class="fas fa-minus"></i></a>'+
                     '</div>'+
+                '</div>'+
                 '</div>'
+
+
 
             );
         });
-    $('.remove').click(function(){
+    $(wrapper).on('click','.remove',function(e){
         if(confirm("Do you want to delete this row?")){
-
+        e.preventDefault();
         $(this).parent().parent().remove();
-        }
+    }
     });
 
        });
