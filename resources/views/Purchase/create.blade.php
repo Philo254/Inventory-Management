@@ -29,6 +29,7 @@
             </div>
 
 
+
             <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -74,8 +75,12 @@
 
                          <label for="id_ven" class=" bcol-sm-6 col-form-label">Supplier Name</label>
                          <div class="col-sm-6">
-                            <input type="text" name="id_ven" id="id_ven" class="form-control" placeholder="Supplier Name">
-                         </div>
+                            <input type="hidden" readonly="true" name="id_ven" id="id_ven" class="form-control" >
+                            <input readonly="true" type="text" name="name_ven" id="name_ven" class="form-control" placeholder="Supplier Name">
+                        </div>
+                        <div class="col-sm-4">
+                         <a href="" class="btn btn-info" title="Vendor" data-toggle="modal" data-target="modal-info">Supplier </a>
+                        </div>
                     </div>
                     </div>
                     <div class="col-md-12 field-wrapper">
@@ -167,8 +172,6 @@
                     '</div>'+
                 '</div>'+
                 '</div>'
-
-
 
             );
         });
