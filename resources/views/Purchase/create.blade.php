@@ -35,7 +35,7 @@
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-12">
+                   <div class="col-md-12">
 
             <!-- Horizontal Form -->
             <div class="card card-info">
@@ -79,7 +79,7 @@
                             <input readonly="true" type="text" name="name_ven" id="name_ven" class="form-control" placeholder="Supplier Name">
                         </div>
                         <div class="col-sm-4">
-                         <a href="" class="btn btn-info" title="Vendor" data-toggle="modal" data-target="modal-info">Supplier </a>
+                         <a href="" class="btn btn-info" title="Vendor" data-toggle="modal" data-target="#modal-info">Supplier </a>
                         </div>
                     </div>
                     </div>
@@ -88,14 +88,20 @@
                          <div class="form-group row">
                          <label for="id_raw_product" class="col-sm-6 col-form-label">Product Name</label>
                          <div class="col-sm-8">
-                            <input type="text" name="id_raw_product[]" id="id_raw_product_1" class="form-control" placeholder="Product Name">
+                            <input type="hidden" readonly="true" name="id_raw_product[]" id="id_raw_product_1" class="form-control" placeholder="Product Name">
+                            <input type="text" readonly="true" name="name_raw_product[]" id="name_raw_product_1" class="form-control" placeholder="Product Name">
+
+                        </div>
+                        <div class="col-sm-3">
+                        <a href="" class="btn btn-info" title="Product" data-toggle="modal" data-target="#modal-info">Product</a>
                         </div>
                     <!--/div-->
+                     <div class="form-group row">
+
                          <div class="col-sm-4">
                         <input type="text" name="price[]" id="price_1" class="form-control" placeholder="Price">
                          </div>
-                         </div>
-                     <div class="form-group row">
+                         <!--/div-->
 
                         <div class="col-sm-4">
                         <input type="text" name="total[]" id="total_1" class="form-control" placeholder="Total">
@@ -152,12 +158,16 @@
             $(wrapper).append( '<div class="form-group row">'+
                              '<div class="col-md-12">'+
                          '<label for="id_raw_product" class="col-sm-6 col-form-label">Product Name</label>'+
-                         '<div class="col-sm-8">'+
-                            '<input type="text" name="id_raw_product[]" id="id_raw_product_'+X+'" class="form-control" placeholder="Product Name">'+
+                         '<div class="col-sm-7">'+
+                          '<input type="hidden" readonly="true" name="id_raw_product[]" id="id_raw_product_1" class="form-control" placeholder="Product Name">'+
+                            '<input type="text" readonly="true" name="name_raw_product[]" id="name_raw_product_1" class="form-control" placeholder="Product Name">'+
+                             '</div>'+
+                              '<div class="col-sm-3">'+
+                        '<a href="" class="btn btn-info" title="Product" data-toggle="modal" data-target="#modal-info">Product</a>'+
                         '</div>'+
                     '</div>'+
                 '</div>'+
-
+                '</div>'+
                     '<div class="form-group row">'+
 
                     '<div class="col-sm-4">'+
@@ -172,7 +182,6 @@
                     '</div>'+
                 '</div>'+
                 '</div>'
-
             );
         });
     $(wrapper).on('click','.remove',function(e){
