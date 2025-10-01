@@ -50,7 +50,7 @@ Route::resource("vendor.store", VendorController::class);
 Route::resource("vendor.update", VendorController::class);
 
 Route::resource("purchase-order", PurchaseController::class);
-
+Route::get ('purchase-order/vendor/popup_media','purchase-order@popup_media_vendor')->name('purchase-order/vendor/popup_media');
 
 
 
