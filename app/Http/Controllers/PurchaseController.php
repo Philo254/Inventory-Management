@@ -62,6 +62,14 @@ class PurchaseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+    //    }
+    }
+    public function popup_media_vendor()
+    {
+        return view ('purchase.view_vendor');
+    }
+     public function popup_media_product($id_count = null)
+    {
+        return view ('purchase.view_product')->with('id_count',$id_count);
     }
 }
